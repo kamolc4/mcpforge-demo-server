@@ -28,6 +28,12 @@ function createMcpServer(): McpServer {
 }
 
 app.all("/mcp", apiKeyAuth, async (req, res) => {
+  // MCP Streamable HTTP transport requires Accept: application/json, text/event-stream.
+  // Set it if absent so non-compliant clients still work.
+  if (!req.headers["accept"]?.includes("text/event-stream")) {
+    req.headers["accept"] = "application/json, text/event-stream";
+  }
+
   const transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: undefined,
   });
