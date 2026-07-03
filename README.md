@@ -1,0 +1,1 @@
+[![Railway MCP — Verified by MCPForge](https://www.mcpforge.tech/api/badge/verified/railway-mcp)](https://www.mcpforge.tech/verified/railway-mcp)
